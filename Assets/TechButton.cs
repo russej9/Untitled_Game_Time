@@ -19,9 +19,7 @@ public class TechButton : MonoBehaviour
     public Material m_lineMat;
     public bool m_researched = false;
     private UnityEngine.UI.Button m_researchButton;
-    public UnityAction a_research; //look up unnity actions for more info
-    public GameObject[] m_unlocks; //everything unlocked by research
-    public float m_researchTime; //how long it takes to research, not implemented yet
+    public UnityAction a_research;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +36,7 @@ public class TechButton : MonoBehaviour
             m_lineRend.endColor = m_colorLine;
             m_lineRend.sharedMaterial = m_lineMat;
         }
-
-        for (int i = 0; i < m_unlocks.Length; i++) //sets all the unlocked things as inactive
-        {
-            GameObject.Find(m_unlocks[i].name).SetActive(false);
-        }
+        
 
         //event stuff
         a_research += DoResearch; //the only function of the listener added to the event
@@ -67,10 +61,6 @@ public class TechButton : MonoBehaviour
             //put whatever unlocks with the tech here and other factors
             GetComponent<UnityEngine.UI.Image>().color = Color.gray; //changes the color of the button
             m_researched = true; //makes it researched, need or infinite looping will occur
-            for (int i = 0; i < m_unlocks.Length; i++) //sets everything unnlocked as active so they appear now
-            {
-                GameObject.Find(m_unlocks[i].name).SetActive(true);
-            }
             m_researchButton.onClick.RemoveAllListeners(); //gets rid of what the button does
             
         }
