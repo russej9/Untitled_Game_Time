@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BuildingGenerator : MonoBehaviour{
 
-    public FloatVariable playerWood;
-    public FloatVariable playerStone;
-    public FloatVariable playerIron;
+    public int m_playerWood;
+    public int m_playerStone;
+    public int m_playerIron;
 
     public void BuildButton()
     {

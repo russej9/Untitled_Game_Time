@@ -5,9 +5,9 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 
-    public FloatVariable playerWood;
-    public FloatVariable playerStone;
-    public FloatVariable playerIron;
+    public int m_playerWood;
+    public int m_playerStone;
+    public int m_playerIron;
 
     public string job;
 
@@ -15,12 +15,12 @@ public class ResourceManager : MonoBehaviour
     {
         if(job == "lumber")
         {
-            playerWood.value = Random.Range(30f, 55f);
+            m_playerWood = Random.Range(30, 55);
         }
         else if(job == "mining")
         {
-            playerStone.value = Random.Range(30f, 55f);
-            playerIron.value = Random.Range(5f, 15f);
+            m_playerStone = Random.Range(30, 55);
+            m_playerIron = Random.Range(0, 15);
         }
     }
 }
