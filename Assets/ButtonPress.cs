@@ -10,8 +10,6 @@ public class ButtonPress : MonoBehaviour
     {
         panel = GameObject.FindWithTag("UI Component");
         panel.SetActive(false);
-        Debug.Log("min = " + panel.GetComponent<RectTransform>().rect.min);
-        Debug.Log("max - " + panel.GetComponent<RectTransform>().rect.max);
     }
 
     // Update is called once per frame

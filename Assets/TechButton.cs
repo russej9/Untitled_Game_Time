@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -21,7 +22,6 @@ public class TechButton : MonoBehaviour
     private UnityEngine.UI.Button m_researchButton;
     private Color m_buttonColor;
     public UnityAction a_research;
-    private
 
     // Start is called before the first frame update
     void Start()
@@ -38,51 +38,30 @@ public class TechButton : MonoBehaviour
             m_lineRend.endColor = m_colorLine;
             m_lineRend.sharedMaterial = m_lineMat;
         }
-
         //event stuff
         a_research += DoResearch; //the only function of the listener added to the event
         m_researchButton = GetComponent<UnityEngine.UI.Button>();
         m_researchButton.onClick.AddListener(a_research); //adds listener for button press, much better way of doing this UI stuff
         m_buttonColor = m_researchButton.image.color; //original button color
+
+        EventTrigger.Entry buttonHover = new EventTrigger.Entry(); //this allows detection of hovering over button, Use as reference when creating events with triggers
+        buttonHover.eventID = EventTriggerType.PointerEnter;
+        buttonHover.callback.AddListener((eventData) => { ShowPreReq(); });
+        EventTrigger.Entry buttonExit = new EventTrigger.Entry();
+        buttonExit.eventID = EventTriggerType.PointerExit;
+        buttonExit.callback.AddListener((eventData) => { StopShowPreReq(); });
+        GameObject.Find(m_researchButton.name).AddComponent<EventTrigger>(); //adds the eventtrigger component to the button
+        m_researchButton.GetComponent<EventTrigger>().triggers.Add(buttonHover); //adds the event for showing prereq to the button
+        m_researchButton.GetComponent<EventTrigger>().triggers.Add(buttonExit); //adds the event for stopping showing the prereq
+
+
     }
 
-    void Update()
-    {
-        if (m_researchButton.GetComponent<RectTransform>().rect.Contains(Input.mousePosition))
-        {
-            if (!(m_researched))
-            {
-                m_researchButton.image.color = Color.blue;
-                for (int i = 0; i < m_prereqTech.Length; i++)
-                {
-                    if (!(GameObject.Find(m_prereqTech[i].name).GetComponent<TechButton>().m_researched))
-                    {
-                        GameObject.Find(m_prereqTech[i].name).GetComponent<UnityEngine.UI.Image>().color = Color.blue;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (m_researchButton.image.color == Color.blue && Input.mousePosition != m_researchButton.transform.position)
-            {
-                m_researchButton.image.color = m_buttonColor;
-                for (int i = 0; i < m_prereqTech.Length; i++)
-                {
-                    if (!(GameObject.Find(m_prereqTech[i].name).GetComponent<TechButton>().m_researched))
-                    {
-                        GameObject.Find(m_prereqTech[i].name).GetComponent<UnityEngine.UI.Image>().color = m_buttonColor;
-                    }
-                }
-            }
-        }
-    }
 
 
     public void DoResearch()
     {
         bool preReqComplete = true;
-        Debug.Log("Made it in");
         for (int i = 0; i < m_prereqTech.Length; i++)
         {
             if(!(GameObject.Find(m_prereqTech[i].name).GetComponent<TechButton>().m_researched)) //checks if all prereq have been m_researched
@@ -108,6 +87,21 @@ public class TechButton : MonoBehaviour
                 }
             }
             DoResearch(); //tells it to do the research again
+        }
+    }
+
+    void ShowPreReq()
+    {
+        for (int i = 0; i < m_prereqTech.Length; i++)
+        {
+            m_prereqTech[i].GetComponent<UnityEngine.UI.Image>().color = Color.blue;
+        }
+    }
+    void StopShowPreReq()
+    {
+        for (int i = 0; i < m_prereqTech.Length; i++)
+        {
+            m_prereqTech[i].GetComponent<UnityEngine.UI.Image>().color = m_buttonColor;
         }
     }
 
