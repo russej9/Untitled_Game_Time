@@ -19,7 +19,9 @@ public class TechButton : MonoBehaviour
     public Material m_lineMat;
     public bool m_researched = false;
     private UnityEngine.UI.Button m_researchButton;
+    private Color m_buttonColor;
     public UnityAction a_research;
+    private
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +38,44 @@ public class TechButton : MonoBehaviour
             m_lineRend.endColor = m_colorLine;
             m_lineRend.sharedMaterial = m_lineMat;
         }
-        
 
         //event stuff
         a_research += DoResearch; //the only function of the listener added to the event
         m_researchButton = GetComponent<UnityEngine.UI.Button>();
         m_researchButton.onClick.AddListener(a_research); //adds listener for button press, much better way of doing this UI stuff
+        m_buttonColor = m_researchButton.image.color; //original button color
+    }
+
+    void Update()
+    {
+        if (m_researchButton.GetComponent<RectTransform>().rect.Contains(Input.mousePosition))
+        {
+            if (!(m_researched))
+            {
+                m_researchButton.image.color = Color.blue;
+                for (int i = 0; i < m_prereqTech.Length; i++)
+                {
+                    if (!(GameObject.Find(m_prereqTech[i].name).GetComponent<TechButton>().m_researched))
+                    {
+                        GameObject.Find(m_prereqTech[i].name).GetComponent<UnityEngine.UI.Image>().color = Color.blue;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (m_researchButton.image.color == Color.blue && Input.mousePosition != m_researchButton.transform.position)
+            {
+                m_researchButton.image.color = m_buttonColor;
+                for (int i = 0; i < m_prereqTech.Length; i++)
+                {
+                    if (!(GameObject.Find(m_prereqTech[i].name).GetComponent<TechButton>().m_researched))
+                    {
+                        GameObject.Find(m_prereqTech[i].name).GetComponent<UnityEngine.UI.Image>().color = m_buttonColor;
+                    }
+                }
+            }
+        }
     }
 
 
