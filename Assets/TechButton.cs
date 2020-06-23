@@ -10,7 +10,8 @@ using UnityEngine.UIElements;
 
 public class TechButton : MonoBehaviour
 {
-    public GameObject[] m_prereqTech; //list of prerequisit tech, can adjust how many prereq 
+    public GameObject[] m_prereqTech; //list of prerequisit tech, can adjust how many prereq
+    public GameObject[] m_unlock;
     public bool m_researched = false;
     private UnityEngine.UI.Button m_researchButton;
     private Color m_buttonColor;
@@ -32,7 +33,7 @@ public class TechButton : MonoBehaviour
         EventTrigger.Entry buttonExit = new EventTrigger.Entry();
         buttonExit.eventID = EventTriggerType.PointerExit;
         buttonExit.callback.AddListener((eventData) => { StopShowPreReq(); });
-        GameObject.Find(m_researchButton.name).AddComponent<EventTrigger>(); //adds the eventtrigger component to the button
+        GameObject.Find(m_researchButton.name).AddComponent<EventTrigger>(); //adds the eventtrigger component to the button ****NEED FOR ADDING ANY EVENT TRIGGER
         
         m_researchButton.GetComponent<EventTrigger>().triggers.Add(buttonHover); //adds the event for showing prereq to the button
         m_researchButton.GetComponent<EventTrigger>().triggers.Add(buttonExit); //adds the event for stopping showing the prereq
@@ -57,6 +58,10 @@ public class TechButton : MonoBehaviour
             GetComponent<UnityEngine.UI.Image>().color = Color.gray; //changes the color of the button
             m_researched = true; //makes it researched, need or infinite looping will occur
             m_researchButton.onClick.RemoveAllListeners(); //gets rid of what the button does
+            for (int i = 0; i < m_unlock.Length; i++) //sets gameobjects that are unlocked to active, creating them
+            {
+                GameObject.Find(m_unlock[i].name).SetActive(true);
+            }
             
         }
         else //queues all incomplete prereq a_research

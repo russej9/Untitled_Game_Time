@@ -33,9 +33,4 @@ public class PathFinder : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision workerCollision)
-    {
-        
-    }
-
 }
