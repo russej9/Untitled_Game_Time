@@ -16,7 +16,6 @@ public class PathFinder : MonoBehaviour
         m_nav = GetComponent<NavMeshAgent>();
         m_nav.autoRepath = true;
         m_Destination = m_workPlace;
-
     }
 
     // Update is called once per frame
