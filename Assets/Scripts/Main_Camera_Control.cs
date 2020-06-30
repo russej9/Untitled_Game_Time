@@ -23,11 +23,11 @@ public class Main_Camera_Control : MonoBehaviour
         {
             transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
         }
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.World);
         }
-        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, 0, -moveSpeed * Time.deltaTime, Space.World);
         }
