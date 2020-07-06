@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PathFinder : MonoBehaviour
+public class Worker_Logic: MonoBehaviour
 {
     public GameObject m_workPlace;
     public GameObject m_home;
