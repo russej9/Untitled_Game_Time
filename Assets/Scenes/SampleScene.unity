@@ -841,13 +841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prereqTech:
   - {fileID: 2070183177}
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
 --- !u!1001 &509083889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,7 +935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &523314364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -950,7 +945,7 @@ RectTransform:
   m_GameObject: {fileID: 523314363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1985439833}
   - {fileID: 1246806536}
@@ -1542,13 +1537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prereqTech:
   - {fileID: 1246806535}
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
 --- !u!1 &868903049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: TerrainObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004362939999586900, guid: 634866599cc6db94faa712172387c512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634866599cc6db94faa712172387c512, type: 3}
@@ -2389,7 +2384,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 2
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -2614,13 +2609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prereqTech:
   - {fileID: 1985439832}
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
 --- !u!1 &1365569603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,13 +2793,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prereqTech:
   - {fileID: 396345947}
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
 --- !u!1 &1531544176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,13 +3267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prereqTech: []
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
 --- !u!114 &1985439835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3503,10 +3483,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prereqTech:
   - {fileID: 755667986}
-  m_colorLine: {r: 1, g: 1, b: 1, a: 1}
-  m_lineWidth: 1
-  m_lineSortOrd: 0
-  m_lineMat: {fileID: 0}
+  m_unlock: []
   m_researched: 0
-  m_unlocks: []
-  m_researchTime: 0
