@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4028310836967293840}
   - component: {fileID: 8192405795801590119}
   m_Layer: 0
-  m_Name: Blacksmith
+  m_Name: Town Hall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
