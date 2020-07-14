@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class Main_Camera_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(transform.rotation.y);
     }
 
     // Update is called once per frame
@@ -23,11 +24,18 @@ public class Main_Camera_Control : MonoBehaviour
         {
             transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
         }
-        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.World);
+            if (transform.eulerAngles.y <= 180)
+            {
+                transform.Translate((transform.eulerAngles.y - 180) / 100 * moveSpeed * Time.deltaTime, 0, (transform.eulerAngles.y - 90) / 100 * moveSpeed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                transform.Translate((transform.eulerAngles.y) / 1000 * moveSpeed * Time.deltaTime, 0, -(transform.eulerAngles.y - 270) / 100 * moveSpeed * Time.deltaTime, Space.World);
+            }
         }
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow))
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, 0, -moveSpeed * Time.deltaTime, Space.World);
         }

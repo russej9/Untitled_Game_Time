@@ -29,6 +29,10 @@ public class Worker_Logic: MonoBehaviour
                 m_Destination = null;
             }
         }
+        else if (m_workPlace != null)
+        {
+            m_Destination = m_workPlace;
+        }
         
     }
 

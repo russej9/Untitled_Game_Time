@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SocialPlatforms;
 
 public class TerrainGeneration : MonoBehaviour
@@ -152,7 +153,8 @@ public class TerrainGeneration : MonoBehaviour
         GetComponent<MeshFilter>().mesh = mesh;
         CreateTerrainGeometry();
         UpdateMesh();
-        GenerateNature();
+        GenerateNature(); 
+        GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     void FixedUpdate()
@@ -244,11 +246,13 @@ public class TerrainGeneration : MonoBehaviour
 
             for(int i = 0; i < numTree_01; i++)
             {
-            tmpGameObject = Instantiate(tree_01);
-            spawnPoint = NearestGridPoint(GetRandPoint());
-            spawnPoint.y = 1.23f;
+                tmpGameObject = Instantiate(tree_01);
+                spawnPoint = NearestGridPoint(GetRandPoint());
+                spawnPoint.y = 1.23f;
 
-            tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -268,6 +272,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -287,6 +293,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -306,6 +314,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -325,6 +335,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -344,6 +356,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -363,6 +377,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -382,6 +398,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -401,6 +419,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -420,6 +440,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -439,6 +461,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -458,6 +482,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -477,6 +503,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -496,6 +524,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -515,6 +545,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -534,6 +566,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -553,6 +587,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -572,6 +608,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -591,6 +629,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -610,6 +650,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -629,6 +671,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -648,6 +692,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -667,6 +713,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -686,6 +734,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -705,6 +755,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -724,6 +776,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -743,6 +797,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -762,6 +818,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -781,6 +839,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -800,6 +860,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -819,6 +881,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -838,6 +902,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -857,6 +923,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -876,6 +944,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -895,6 +965,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -914,6 +986,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -933,6 +1007,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -952,6 +1028,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -971,6 +1049,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -990,6 +1070,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
 
@@ -1009,6 +1091,8 @@ public class TerrainGeneration : MonoBehaviour
                 spawnPoint.y = 1.23f;
 
                 tmpGameObject.transform.position = spawnPoint;
+                tmpGameObject.gameObject.AddComponent<NavMeshModifier>();
+                tmpGameObject.GetComponent<NavMeshModifier>().ignoreFromBuild = true;
             }
         }
     }
