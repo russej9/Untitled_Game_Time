@@ -30,6 +30,7 @@ public class BuildingPlacement : MonoBehaviour{
 
     private void Start()
     {
+        //sets common variables and sets up the action for when the button is clicked
         m_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         resourceManager = GameObject.Find("GameManager").GetComponent<ResourceManager>();
         a_build += SelectBuilding;

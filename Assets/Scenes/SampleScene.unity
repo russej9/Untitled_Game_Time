@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 91135643}
   - component: {fileID: 91135642}
   - component: {fileID: 91135641}
+  - component: {fileID: 91135644}
   m_Layer: 5
   m_Name: BuildingTestButton2
   m_TagString: Untagged
@@ -268,18 +269,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 91135642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectBuilding
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: House_02
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &91135642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +307,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91135639}
   m_CullTransparentMesh: 0
+--- !u!114 &91135644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91135639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe8dfc3fc504064799a0cf46962e959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Build: {fileID: 2390201350844457898, guid: 03988dc666030244d87072a3e9eed4ea, type: 3}
+  m_woodCost: 10
+  m_stoneCost: 30
+  m_ironCost: 0
 --- !u!1 &245294356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,18 +2104,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 905935698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectBuilding
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: House_01
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &905935698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,12 +2154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe8dfc3fc504064799a0cf46962e959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_camera: {fileID: 0}
-  m_selectedBuilding: {fileID: 0}
-  m_currentSpwnObj: {fileID: 0}
-  m_Wood: 0
-  m_Stone: 0
-  m_Iron: 0
+  m_Build: {fileID: 1957818268870677999, guid: 66c2eaf678841384d99f669f1384d96a, type: 3}
+  m_woodCost: 30
+  m_stoneCost: 30
+  m_ironCost: 0
 --- !u!1 &927315223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2505,6 @@ MonoBehaviour:
   m_playerWood: 2147483647
   m_playerStone: 2147483647
   m_playerIron: 2147483647
-  job: 
 --- !u!4 &1244300981
 Transform:
   m_ObjectHideFlags: 0
