@@ -29,8 +29,12 @@ public class BuildingPlacement : MonoBehaviour{
         {
             if (m_selectedBuilding != null)
             {
+                if (m_Stone >= 10 && m_Wood >= 30)
+                {
                     m_tmpObj = Instantiate(m_selectedBuilding);
                     m_tmpObj.transform.position = hit.point;
+                    m_tmpObj.transform.parent = GameObject.Find("Terrain").transform;
+
 
                     Vector3 nearestPoint = GameObject.Find("Terrain").GetComponent<TerrainGeneration>().NearestGridPoint(hit.point); //makes sure it hits the landscape
 
@@ -39,6 +43,7 @@ public class BuildingPlacement : MonoBehaviour{
 
                     m_Stone = m_Stone - 10; //removes resources
                     m_Wood = m_Wood - 30;
+                }
             }
         }
         else if (Input.GetMouseButtonDown(1)) //if right mouse button clicked then it stops the placement and deletes the building you are trying to place
