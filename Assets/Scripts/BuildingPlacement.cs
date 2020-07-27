@@ -22,7 +22,7 @@ public class BuildingPlacement : MonoBehaviour{
 
     public int m_woodCost;
     public int m_stoneCost;
-    public int m_ironCost;
+    public int m_metalCost;
 
     private ResourceManager resourceManager;
     public UnityAction a_build;
@@ -48,7 +48,7 @@ public class BuildingPlacement : MonoBehaviour{
         {
             if (m_selectedBuilding != null)
             {
-                if (resourceManager.m_playerStone >= m_stoneCost && resourceManager.m_playerWood >= m_woodCost && resourceManager.m_playerIron >= m_ironCost) //use for all material costs
+                if (resourceManager.m_playerStone >= m_stoneCost && resourceManager.m_playerWood >= m_woodCost && resourceManager.m_playerMetal >= m_metalCost) //use for all material costs
                 {
                     m_tmpObj = Instantiate(m_selectedBuilding, GameObject.Find("Terrain").transform);
                     m_tmpObj.transform.position = hit.point;
@@ -61,7 +61,7 @@ public class BuildingPlacement : MonoBehaviour{
 
                     resourceManager.m_playerStone -= m_stoneCost; //removes resources
                     resourceManager.m_playerWood -= m_woodCost;
-                    resourceManager.m_playerIron -= m_ironCost;
+                    resourceManager.m_playerMetal -= m_metalCost;
 
                     m_tmpObj.gameObject.AddComponent<NavMeshModifier>().overrideArea = true;
                     m_tmpObj.GetComponent<NavMeshModifier>().area = 1;
