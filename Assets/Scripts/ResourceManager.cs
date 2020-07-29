@@ -7,6 +7,7 @@ public class ResourceManager : MonoBehaviour //this collects all of the resource
 
     public int m_playerWood; 
     public int m_playerStone;
-    public int m_playerIron;
-
+    public int m_playerMetal;
+    public int m_playerTools;
+    public int m_playerWeapons;
 }
