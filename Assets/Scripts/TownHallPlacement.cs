@@ -32,6 +32,7 @@ public class TownHallPlacement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) //if the left mouse button is clicked then building gets placed
         {
+            BuildingCursor();
             if (m_townHall != null)
             {
                 m_tmpObj = Instantiate(m_townHall, GameObject.Find("Terrain").transform);
