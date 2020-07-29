@@ -57,57 +57,59 @@ public class BuildingPlacement : MonoBehaviour{
     void Update()
     {
         BuildingCursor();
-
-        if (m_selectedBuilding != null) //I believe that this checks for all the times that you don't click and helps keep the green building attached to landscape
+        if (stillBuild)
         {
-            Vector3 nearestPoint = GameObject.Find("Terrain").GetComponent<TerrainGeneration>().NearestGridPoint(hit.point);
-            m_selectedBuilding.transform.SetPositionAndRotation(new Vector3(nearestPoint.x, 1.5f, nearestPoint.z), m_selectedBuilding.transform.rotation);
-            if (resourceManager.m_playerStone >= m_stoneCost && resourceManager.m_playerWood >= m_woodCost && resourceManager.m_playerMetal >= m_metalCost) //use for all material costs
+            if (m_selectedBuilding != null) //I believe that this checks for all the times that you don't click and helps keep the green building attached to landscape
             {
-                if (!m_selectedBuilding.GetComponent<BuildingPlacementCollision>().buildingCollider)
+                Vector3 nearestPoint = GameObject.Find("Terrain").GetComponent<TerrainGeneration>().NearestGridPoint(hit.point);
+                m_selectedBuilding.transform.SetPositionAndRotation(new Vector3(nearestPoint.x, 1.5f, nearestPoint.z), m_selectedBuilding.transform.rotation);
+                if (resourceManager.m_playerStone >= m_stoneCost && resourceManager.m_playerWood >= m_woodCost && resourceManager.m_playerMetal >= m_metalCost) //use for all material costs
                 {
-                    if (Input.GetMouseButtonDown(0)) //if the left mouse button is clicked then building gets placed
+                    if (!m_selectedBuilding.GetComponent<BuildingPlacementCollision>().buildingCollider)
                     {
-                        m_tmpObj = Instantiate(m_selectedBuilding, GameObject.Find("Terrain").transform);
-                        m_tmpObj.transform.position = hit.point;
-                        m_tmpObj.GetComponent<MeshCollider>().isTrigger = true;
-                        m_tmpObj.GetComponent<BuildingPlacementCollision>().placed = true;
+                        if (Input.GetMouseButtonDown(0)) //if the left mouse button is clicked then building gets placed
+                        {
+                            m_tmpObj = Instantiate(m_selectedBuilding, GameObject.Find("Terrain").transform);
+                            m_tmpObj.transform.position = hit.point;
+                            m_tmpObj.GetComponent<MeshCollider>().isTrigger = true;
+                            m_tmpObj.GetComponent<BuildingPlacementCollision>().placed = true;
 
-                        m_tmpObj.transform.SetPositionAndRotation(new Vector3(nearestPoint.x, 1.5f, nearestPoint.z), m_tmpObj.transform.rotation);
-                        m_tmpObj.GetComponent<MeshRenderer>().material.color = Color.white;
+                            m_tmpObj.transform.SetPositionAndRotation(new Vector3(nearestPoint.x, 1.5f, nearestPoint.z), m_tmpObj.transform.rotation);
+                            m_tmpObj.GetComponent<MeshRenderer>().material.color = Color.white;
 
-                        resourceManager.m_playerStone -= m_stoneCost; //removes resources
-                        resourceManager.m_playerWood -= m_woodCost;
-                        resourceManager.m_playerMetal -= m_metalCost;
+                            resourceManager.m_playerStone -= m_stoneCost; //removes resources
+                            resourceManager.m_playerWood -= m_woodCost;
+                            resourceManager.m_playerMetal -= m_metalCost;
 
-                        m_tmpObj.gameObject.AddComponent<NavMeshModifier>().overrideArea = true;
-                        m_tmpObj.GetComponent<NavMeshModifier>().area = 1;
-                        GameObject.Find("Terrain").GetComponent<NavMeshSurface>().BuildNavMesh(); //This adds the building to the navmesh
+                            m_tmpObj.gameObject.AddComponent<NavMeshModifier>().overrideArea = true;
+                            m_tmpObj.GetComponent<NavMeshModifier>().area = 1;
+                            GameObject.Find("Terrain").GetComponent<NavMeshSurface>().BuildNavMesh(); //This adds the building to the navmesh
 
-                    }//maybe add obstacle detection here
+                        }//maybe add obstacle detection here
+                        else if (Input.GetMouseButtonDown(1)) //if right mouse button clicked then it stops the placement and deletes the building you are trying to place
+                        {
+                            Destroy(m_selectedBuilding);
+                            stillBuild = false;
+                        }
+                    }
                     else if (Input.GetMouseButtonDown(1)) //if right mouse button clicked then it stops the placement and deletes the building you are trying to place
                     {
                         Destroy(m_selectedBuilding);
                         stillBuild = false;
                     }
+
                 }
                 else if (Input.GetMouseButtonDown(1)) //if right mouse button clicked then it stops the placement and deletes the building you are trying to place
                 {
                     Destroy(m_selectedBuilding);
                     stillBuild = false;
+                    m_missingResources.transform.localScale = Vector3.zero;
                 }
-
-            }
-            else if (Input.GetMouseButtonDown(1)) //if right mouse button clicked then it stops the placement and deletes the building you are trying to place
-            {
-                Destroy(m_selectedBuilding);
-                stillBuild = false;
-                m_missingResources.transform.localScale = Vector3.zero;
-            }
-            else
-            {
-                m_missingResources.transform.localScale = new Vector3(1.828224f, 1.875102f, 1.875102f);
-                m_selectedBuilding.GetComponent<MeshRenderer>().material.color = Color.red;
+                else
+                {
+                    m_missingResources.transform.localScale = new Vector3(1.828224f, 1.875102f, 1.875102f);
+                    m_selectedBuilding.GetComponent<MeshRenderer>().material.color = Color.red;
+                }
             }
         }
         
